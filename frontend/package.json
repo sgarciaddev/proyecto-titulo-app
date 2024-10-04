@@ -1,6 +1,6 @@
 {
   "name": "ddos-attack-detector",
-  "author": "Sebastián García Delgadillo",
+  "author": "Sebastián García Delgadillo <sebastian.garcia@pucv.cl>",
   "description": "Frontend Vite/Vue.js application for the DDoS Attack Detector on my Degree's Project.",
   "repository": "https://github.com/sgarciaddev/proyecto-titulo-app",
   "license": "CC0-1.0",
@@ -17,10 +17,14 @@
     "format": "prettier --write src/"
   },
   "dependencies": {
+    "@fontsource/monaspace-xenon": "5.1.0",
+    "flag-icons": "7.2.3",
+    "oh-vue-icons": "1.0.0-rc3",
     "vue": "3.5.12",
     "vue-router": "4.4.5"
   },
   "devDependencies": {
+    "@tailwindcss/aspect-ratio": "0.4.2",
     "@tsconfig/node20": "20.1.4",
     "@types/node": "20.17.2",
     "@vitejs/plugin-vue": "5.1.4",
