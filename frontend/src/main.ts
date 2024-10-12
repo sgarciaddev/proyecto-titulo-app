@@ -1,11 +1,24 @@
-import './assets/main.css'
+import './assets/main.css';
 
-import { createApp } from 'vue'
-import App from './App.vue'
-import router from './router'
+import { createApp } from 'vue';
+import App from './App.vue';
+import router from './router';
 
-const app = createApp(App)
+import { addIcons, OhVueIcon } from 'oh-vue-icons';
+import {
+  FaGlobe,
+  FaRobot,
+  FaRocket,
+  HiMenu,
+  HiX,
+  SiGithub,
+  SiLinkedin,
+} from 'oh-vue-icons/icons';
 
-app.use(router)
+const app = createApp(App);
 
-app.mount('#app')
+app.use(router);
+
+addIcons(SiGithub, SiLinkedin, FaGlobe, FaRocket, FaRobot, HiMenu, HiX);
+app.component('v-icon', OhVueIcon);
+app.mount('#app');
