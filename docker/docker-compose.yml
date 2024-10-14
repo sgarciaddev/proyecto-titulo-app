@@ -1,0 +1,41 @@
+version: '3.5'
+
+name: ddos-attack-mitigation-app
+
+services:
+
+  web:
+    image: node:20.18.0
+    restart: on-failure
+    volumes:
+      - ../frontend:/usr/src/app
+      - ddos-attack-mitigation-app-web-nm:/usr/src/app/node_modules
+    networks:
+      default:
+        aliases:
+          - ddos-attack-mitigation-app-web
+
+  api:
+    image: python:3.10-slim
+    restart: on-failure
+    volumes:
+      - ../backend:/usr/src/app
+    networks:
+      default:
+        aliases:
+          - ddos-attack-mitigation-app-api
+
+  proxy:
+    image: nginx:latest
+    restart: on-failure
+    ports:
+      - '80:80'
+      - '443:443'
+    volumes:
+      - ./nginx.conf:/etc/nginx/nginx.conf
+    depends_on:
+      - api
+      - web
+
+volumes:
+  ddos-attack-mitigation-app-web-nm:
