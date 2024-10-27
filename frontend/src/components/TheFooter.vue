@@ -1,4 +1,6 @@
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import TheIcon from '@/components/TheIcon.vue';
+</script>
 
 <template>
   <footer class="bg-zinc-900">
@@ -32,6 +34,7 @@
         </a>
       </div>
       <div class="flex items-center gap-x-8">
+        <TheIcon class="h-16 w-auto" />
         <p class="mt-8 text-center text-sm/6 text-zinc-400 md:order-1 md:mt-0">
           2024 | Desarrollado por Sebastián García Delgadillo (<a
             class="text-hacker-green-soft hover:text-hacker-green"

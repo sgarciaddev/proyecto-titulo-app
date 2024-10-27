@@ -1,7 +1,15 @@
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import TheBackground from '@/components/TheBackground.vue';
+import TheHero from '@/components/TheHero.vue';
+import KasperskyCyberthreatMap from '@/components/KasperskyCyberthreatMap.vue';
+import MachineLearningAlgorithms from '@/components/MachineLearningAlgorithms.vue';
+</script>
 
 <template>
   <main class="relative isolate">
-    <h1 class="text-4xl font-bold text-center">Home</h1>
+    <TheBackground />
+    <TheHero />
+    <KasperskyCyberthreatMap />
+    <MachineLearningAlgorithms />
   </main>
 </template>

@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { onBeforeUnmount, onMounted, ref } from 'vue';
+import TheIcon from '@/components/TheIcon.vue';
 
 const isScrolled = ref(false);
 const isOpened = ref(false);
@@ -7,16 +8,16 @@ const isOpened = ref(false);
 const links = [
   {
     text: 'Inicio',
-    to: { path: '/inicio', hash: '#inicio' },
+    to: { path: '/inicio', hash: '#inicio' }
   },
   {
     text: 'Amenazas',
-    to: { path: '/inicio', hash: '#cyberthreat-map' },
+    to: { path: '/inicio', hash: '#cyberthreat-map' }
   },
   {
     text: 'Machine Learning',
-    to: { path: '/inicio', hash: '#ml' },
-  },
+    to: { path: '/inicio', hash: '#ml' }
+  }
 ];
 
 const handleScroll = () => {
@@ -49,6 +50,7 @@ onBeforeUnmount(() => {
       <div class="flex lg:flex-1">
         <span class="-m-1.5 p-1.5">
           <span class="sr-only">DDoS Attack Simulator</span>
+          <TheIcon class="h-12 w-auto" />
         </span>
       </div>
       <div class="flex lg:hidden">
