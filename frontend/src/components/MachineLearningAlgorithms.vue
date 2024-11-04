@@ -4,20 +4,20 @@ const ml = [
     name: 'Random Forest',
     icon: 'gi-forest',
     description:
-      'Analiza patrones complejos de tráfico para detectar anomalías que indican posibles ataques DDoS.'
+      'Analiza patrones complejos de tráfico para detectar anomalías que indican posibles ataques DDoS.',
   },
   {
     name: 'XGBoost',
     icon: 'gi-rocket-thruster',
     description:
-      'Identifica rápidamente comportamientos maliciosos mediante técnicas de boosting en grandes volúmenes de datos.'
+      'Identifica rápidamente comportamientos maliciosos mediante técnicas de boosting en grandes volúmenes de datos.',
   },
   {
     name: 'LSTM',
     icon: 'bi-memory',
     description:
-      'Predice ataques al reconocer secuencias temporales en el flujo de tráfico de la red.'
-  }
+      'Predice ataques al reconocer secuencias temporales en el flujo de tráfico de la red.',
+  },
 ];
 </script>
 
@@ -56,9 +56,12 @@ const ml = [
     </dl>
     <RouterLink
       to="/simulador"
-      class="text-lg my-12 2xl:text-2xl 2xl:my-16 text-center transition-all delay-100 duration-300 ease-in-out w-full block rounded-lg py-8 font-semibold text-hacker-green-soft bg-zinc-600 hover:bg-hacker-green-soft hover:text-black"
+      class="group text-lg my-12 2xl:text-2xl 2xl:my-16 text-center transition-all delay-100 duration-300 ease-in-out w-full block rounded-lg py-8 font-semibold text-hacker-green-soft bg-zinc-600 hover:bg-hacker-green-soft hover:text-black"
     >
-      <v-icon class="w-12 h-8" name="fa-rocket" />
+      <v-icon
+        class="w-12 h-8 transition-transform duration-500 delay-100 ease-in-out group-hover:scale-150"
+        name="fa-rocket"
+      />
       Prueba nuestro simulador impulsado por IA
     </RouterLink>
   </div>
