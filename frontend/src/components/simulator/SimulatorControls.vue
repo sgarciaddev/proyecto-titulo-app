@@ -87,7 +87,7 @@ const qSelectOpened = ref(false);
       <input
         class="pr-6 bg-red-500"
         type="range"
-        value="100"
+        :value="currentQAttacks"
         min="100"
         max="250000"
         @change="
@@ -108,12 +108,12 @@ const qSelectOpened = ref(false);
       </div>
       <div
         @click="qSelectOpened = false"
-        class="flex items-center justify-between py-2 px-2 cursor-pointer hover:bg-zinc-800"
+        class="rounded-lg flex text-white items-center justify-between py-2 px-2 cursor-pointer bg-hacker-green hover:bg-hacker-green-soft hover:text-black"
       >
-        <h3 class="text-lg/7 text-white ml-4">Guardar</h3>
+        <h3 class="text-lg/7 ml-4 text-center">Guardar</h3>
       </div>
     </div>
-    <div class="mt-20 flex flex-col">
+    <div v-if="currentAlg.value != 'none'" class="mt-20 flex flex-col">
       <div class="flex items-center gap-x-8">
         <v-icon class="h-20 w-20 text-hacker-green" :name="currentAlg.icon" />
         <h3 class="text-base/7 font-bold text-white ml-4">
@@ -125,8 +125,8 @@ const qSelectOpened = ref(false);
         Serán enviados a análisis la cantidad exacta de {{ currentQAttacks }}
         paquetes de red, a través de diferentes puertos y protocolos. De los
         {{ currentQAttacks }} paquetes, se espera que
-        {{ Math.round(currentQAttacks * 0.2) }} sean benignos, y
-        {{ currentQAttacks - Math.round(currentQAttacks * 0.2) }} sean
+        {{ Math.round(currentQAttacks * 0.08) }} sean benignos, y
+        {{ currentQAttacks - Math.round(currentQAttacks * 0.08) }} sean
         maliciosos.
       </p>
     </div>
@@ -134,7 +134,7 @@ const qSelectOpened = ref(false);
       class="mt-32 text-white flex items-center gap-x-2 xl:gap-x-8 py-2 px-4 cursor-pointer bg-hacker-green hover:bg-hacker-green-soft hover:text-black"
     >
       <v-icon class="h-20 w-20" name="fa-rocket" />
-      <h3 class="text-xl/7 ml-4">Paso 3. Simular ataque</h3>
+      <p class="text-xl/7 ml-4">Paso 3. Simular ataque</p>
     </button>
   </div>
 </template>

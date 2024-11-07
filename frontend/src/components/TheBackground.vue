@@ -2,7 +2,7 @@
 
 <template>
   <div
-    class="absolute inset-x-0 top-4 -z-10 flex transform-gpu justify-center overflow-hidden blur-3xl"
+    class="absolute top-4 -z-10 flex transform-gpu justify-center overflow-hidden blur-3xl"
   >
     <div
       class="opacity-15 background w-full bg-gradient-to-b from-hacker-green-soft to-hacker-green"
