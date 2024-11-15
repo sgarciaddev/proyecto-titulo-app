@@ -18,6 +18,7 @@
   },
   "dependencies": {
     "@fontsource/monaspace-xenon": "5.1.0",
+    "axios": "1.7.7",
     "flag-icons": "7.2.3",
     "oh-vue-icons": "1.0.0-rc3",
     "vue": "3.5.12",

@@ -34,6 +34,42 @@ const currentAlg = ref(alg[0]);
 const algSelectOpened = ref(false);
 const currentQAttacks = ref(100);
 const qSelectOpened = ref(false);
+const results = ref(null);
+const error = ref(null);
+const isLoading = ref(false);
+
+const simulateAttack = async () => {
+  error.value = null;
+  results.value = null;
+  isLoading.value = true;
+
+  // Se valida que se haya seleccionado un algoritmo
+  if (currentAlg.value.value === 'none') {
+    error!.value = 'Por favor, seleccione un algoritmo.';
+    isLoading.value = false;
+    return;
+  }
+
+  try {
+    const response = await axios.post('/simulate', {
+      dataset: currentAlg.value.value === 'lstm' ? 'nbaiot' : 'cicddos2019',
+      model: currentAlg.value.value,
+      attack_size: currentQAttacks.value,
+    });
+
+    results.value = response.data;
+  } catch (err: any) {
+    if (err.response) {
+      error.value = err.response.data.error || 'Error al procesar la solicitud';
+    } else if (err.request) {
+      error.value = 'No se recibió respuesta del servidor';
+    } else {
+      error.value = 'Error al configurar la solicitud';
+    }
+  } finally {
+    isLoading.value = false;
+  }
+};
 </script>
 
 <template>
@@ -132,10 +168,28 @@ const qSelectOpened = ref(false);
     </div>
     <button
       class="mt-32 text-white flex items-center gap-x-2 xl:gap-x-8 py-2 px-4 cursor-pointer bg-hacker-green hover:bg-hacker-green-soft hover:text-black"
+      @click="simulateAttack"
     >
       <v-icon class="h-20 w-20" name="fa-rocket" />
       <p class="text-xl/7 ml-4">Paso 3. Simular ataque</p>
     </button>
+    <div v-if="isLoading" class="mt-8">
+      <p class="text-white">Simulando ataque, por favor espera...</p>
+    </div>
+
+    <div v-if="error" class="mt-8">
+      <p class="text-red-500">Error: {{ error }}</p>
+    </div>
+
+    <div v-if="results" class="mt-8 text-white">
+      <h2 class="text-xl font-bold">Resultados de la Simulación:</h2>
+      <ul class="mt-4">
+        <li>TP (Verdaderos Positivos): {{ results.TP }}</li>
+        <li>FP (Falsos Positivos): {{ results.FP }}</li>
+        <li>TN (Verdaderos Negativos): {{ results.TN }}</li>
+        <li>FN (Falsos Negativos): {{ results.FN }}</li>
+      </ul>
+    </div>
   </div>
 </template>
 

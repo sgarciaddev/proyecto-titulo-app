@@ -64,6 +64,23 @@ Para ejecutar este proyecto, es necesario seguir los siguientes pasos:
     - `200`: Mensaje de bienvenida
     - `500`: Error interno del servidor
 
+### Ruta `/simulate`
+
+#### `POST /simulate`
+
+- **Descripción**: Genera una simulación de mitigación de ataques DDoS
+  a un modelo de aprendizaje automático.
+- **Params:** Ninguno
+- **Body:** Datos de la simulación (`application/json`)
+    - `model`: Modelo de aprendizaje automático a simular
+    - `dataset`: Set de datos a simular
+    - `attack_size`: Cantidad de ataques a simular (paquetes de red)
+- **Respuesta:** Matriz de confusión (`application/json`)
+- **Códigos de estado:**
+    - `200`: Ok. Matriz de confusión generada
+    - `400`: Parámetros/body inválidos
+    - `500`: Error interno del servidor
+
 <!-- badges -->
 
 [python-badge]: https://img.shields.io/badge/Python%203.10-3776AB?logo=python&logoColor=FFF&style=flat
